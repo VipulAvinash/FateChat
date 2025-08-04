@@ -18,7 +18,7 @@
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB Atlas
 - **Real-Time:** Socket.IO
-- **Authentication:** JWT (or Firebase/Auth if used)
+- **Authentication:** JWT
 
 ## 📦 Installation
 
