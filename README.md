@@ -10,7 +10,7 @@
 - 📨 Chat notifications
 - 💾 MongoDB message storage
 - 📱 Fully responsive UI
-- 📁 Image/File sharing (if implemented)
+- 📁 Image/File sharing 
 
 ## 🛠️ Tech Stack
 
