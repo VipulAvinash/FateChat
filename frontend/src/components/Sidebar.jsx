@@ -79,17 +79,17 @@ const Sidebar = () => {
             onClick={() => setSelectedUser(user)}
             className={`
               group w-full flex items-center gap-3.5 rounded-2xl px-3 py-2.5
-              transition-all duration-300 hover:bg-base-200/50 border border-transparent
+              transition-all duration-300 hover:bg-base-200/50 border border-transparent hover-lift
               ${
                 selectedUser?._id === user._id
-                  ? "bg-base-200 border-base-300/80 shadow-lg ring-1 ring-primary/20 backdrop-blur-sm"
+                  ? "bg-gradient-to-r from-base-200 via-base-100/80 to-base-200/50 border-base-300/80 shadow-lg ring-1 ring-primary/20 backdrop-blur-sm scale-[1.01]"
                   : ""
               }
             `}
           >
             {/* Profile pic */}
             <div className="relative flex-shrink-0">
-              <div className={`p-0.5 rounded-full bg-gradient-to-tr transition-all duration-300 ${selectedUser?._id === user._id ? "from-primary to-accent" : "from-transparent to-transparent"}`}>
+              <div className={`p-0.5 rounded-full bg-gradient-to-tr transition-all duration-300 ${selectedUser?._id === user._id ? "from-primary via-secondary to-accent" : "from-transparent to-transparent group-hover:from-primary/30 group-hover:to-accent/30"}`}>
                 <img
                   src={user.profilePic || "/avatar.png"}
                   alt={user.fullName}
@@ -103,19 +103,19 @@ const Sidebar = () => {
 
             {/* Info */}
             <div className="hidden lg:block flex-1 min-w-0 text-left">
-              <div className={`font-bold text-sm tracking-tight truncate ${selectedUser?._id === user._id ? "text-base-content" : "text-base-content/80 group-hover:text-base-content"}`}>
+              <div className={`font-bold text-sm tracking-tight truncate ${selectedUser?._id === user._id ? "text-base-content bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-extrabold" : "text-base-content/80 group-hover:text-base-content"}`}>
                 {user.fullName}
               </div>
               <div className="text-xs font-medium text-base-content/50 flex items-center gap-1 mt-0.5">
                 {onlineUsers.includes(user._id) ? (
                   <>
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                    <span>Active Now</span>
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping duration-1000" />
+                    <span className="text-green-500 font-semibold">Online</span>
                   </>
                 ) : (
                   <>
                     <div className="w-1.5 h-1.5 bg-base-content/30 rounded-full" />
-                    <span>Away</span>
+                    <span>Offline</span>
                   </>
                 )}
               </div>
@@ -123,7 +123,7 @@ const Sidebar = () => {
           </button>
         ))}
         {filteredUsers.length === 0 && (
-          <div className="text-center py-6 text-base-content/40 text-xs font-medium bg-base-200/20 rounded-xl border border-dashed border-base-300/40 m-2">
+          <div className="text-center py-6 text-base-content/40 text-xs font-medium bg-base-200/20 rounded-xl border border-dashed border-base-300/40 m-2 animate-fade-in">
             No contacts found
           </div>
         )}

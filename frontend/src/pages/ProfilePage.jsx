@@ -20,8 +20,8 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen pt-24 bg-gradient-to-br from-base-100 via-base-200 to-base-300 pb-12 select-none">
-      <div className="max-w-2xl mx-auto p-4 py-4 animate-fade-in">
-        <div className="bg-base-100/60 backdrop-blur-md rounded-3xl border border-base-300/80 p-8 space-y-8 shadow-2xl hover:border-primary/15 transition-all duration-300 group">
+      <div className="max-w-2xl mx-auto p-4 py-4 animate-fade-up">
+        <div className="bg-base-100/60 backdrop-blur-md rounded-3xl border border-base-300/80 p-8 space-y-8 shadow-2xl hover:border-primary/15 transition-all duration-500 group hover:shadow-primary/5">
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               My Profile
@@ -34,7 +34,7 @@ const ProfilePage = () => {
           {/* Image section */}
           <div className="flex flex-col items-center gap-4">
             <div className="relative group/avatar cursor-pointer">
-              <div className="relative p-1 rounded-full bg-gradient-to-tr from-primary/30 to-accent/30 shadow-xl group-hover/avatar:scale-[1.02] transition-transform duration-300 border border-primary/10">
+              <div className="relative p-1 rounded-full bg-gradient-to-tr from-primary/30 via-secondary/10 to-accent/30 shadow-xl group-hover/avatar:scale-[1.03] transition-all duration-300 border border-primary/10">
                 <img
                   src={selectedImg || authUser?.profilePic || "/avatar.png"}
                   alt="Profile"
@@ -75,7 +75,7 @@ const ProfilePage = () => {
                 <User className="w-5 h-5 text-primary/70" />
                 Full Name
               </div>
-              <div className="px-4 py-3 bg-base-200/40 rounded-xl border border-base-300/80 text-base-content backdrop-blur-sm font-medium flex items-center justify-between">
+              <div className="px-4 py-3 bg-base-200/40 rounded-xl border border-base-300/80 text-base-content backdrop-blur-sm font-medium flex items-center justify-between hover:border-primary/20 transition-all duration-300 select-text">
                 <span>{authUser?.fullName || "Not set"}</span>
               </div>
             </div>
@@ -85,13 +85,13 @@ const ProfilePage = () => {
                 <Mail className="w-5 h-5 text-secondary/70" />
                 Email Address
               </div>
-              <div className="px-4 py-3 bg-base-200/40 rounded-xl border border-base-300/80 text-base-content backdrop-blur-sm font-medium flex items-center justify-between">
+              <div className="px-4 py-3 bg-base-200/40 rounded-xl border border-base-300/80 text-base-content backdrop-blur-sm font-medium flex items-center justify-between hover:border-primary/20 transition-all duration-300 select-text">
                 <span>{authUser?.email || "Not set"}</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 bg-base-200/40 border border-base-300/80 rounded-2xl p-6 backdrop-blur-sm">
+          <div className="mt-6 bg-base-200/40 border border-base-300/80 rounded-2xl p-6 backdrop-blur-sm hover-lift hover:border-base-300 transition-all duration-300">
             <h2 className="text-lg font-bold text-base-content/80 mb-4 flex items-center gap-2">
               <ShieldCheck className="w-6 h-6 text-accent" /> Account Information
             </h2>

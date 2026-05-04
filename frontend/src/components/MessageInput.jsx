@@ -70,11 +70,11 @@ const MessageInput = () => {
       )}
 
       <form onSubmit={handleSendMessage} className="flex items-center gap-2.5">
-        <div className="flex-1 flex gap-2 items-center bg-base-100/50 backdrop-blur-sm px-3.5 py-1 rounded-2xl border border-base-300/80 focus-within:border-primary/40 focus-within:ring-1 focus-within:ring-primary/20 transition-all">
+        <div className="flex-1 flex gap-2 items-center bg-base-100/50 backdrop-blur-sm px-3.5 py-1 rounded-2xl border border-base-300/80 focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-primary/20 transition-all hover:border-base-300">
           <input
             type="text"
             className="flex-1 bg-transparent border-0 outline-none text-sm text-base-content placeholder-base-content/40 focus:outline-none min-h-[44px]"
-            placeholder="Type your message destiny..."
+            placeholder="Type your message..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
@@ -88,8 +88,8 @@ const MessageInput = () => {
 
           <button
             type="button"
-            className={`btn btn-sm btn-ghost btn-circle hover:bg-base-200 hover:text-primary transition-all
-                     ${imagePreview ? "text-emerald-500" : "text-base-content/40 hover:text-primary/80"}`}
+            className={`btn btn-sm btn-ghost btn-circle hover:bg-base-200 hover:text-primary transition-all duration-300 hover:scale-110
+                     ${imagePreview ? "text-emerald-500 bg-emerald-50/10" : "text-base-content/40 hover:text-primary/80"}`}
             onClick={() => fileInputRef.current?.click()}
           >
             <Image size={22} />
@@ -98,13 +98,13 @@ const MessageInput = () => {
 
         <button
           type="submit"
-          className={`btn btn-sm btn-circle h-11 w-11 rounded-2xl shadow-lg border-0 transition-all duration-300 
+          className={`btn btn-sm btn-circle h-11 w-11 rounded-2xl shadow-lg border-0 transition-all duration-300 hover:scale-105 active:scale-95
             ${text.trim() || imagePreview 
-              ? "bg-primary hover:bg-primary/90 text-primary-content hover:scale-105 active:scale-95 shadow-primary/20" 
+              ? "bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-content shadow-primary/20" 
               : "bg-base-200 text-base-content/30 cursor-not-allowed"}`}
           disabled={!text.trim() && !imagePreview}
         >
-          <Send size={22} className={`${text.trim() || imagePreview ? "translate-x-0.5" : ""}`} />
+          <Send size={20} className={`${text.trim() || imagePreview ? "translate-x-0.5 animate-pulse" : ""}`} />
         </button>
       </form>
     </div>

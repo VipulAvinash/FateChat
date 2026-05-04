@@ -53,7 +53,7 @@ const ChatContainer = () => {
           return (
             <div
               key={message._id}
-              className={`chat ${isSentByMe ? "chat-end" : "chat-start"} animate-fade-in`}
+              className={`chat ${isSentByMe ? "chat-end" : "chat-start"} animate-fade-up hover-lift`}
               ref={messageEndRef}
             >
               <div className="chat-image avatar select-none">
@@ -79,11 +79,11 @@ const ChatContainer = () => {
 
               {/* Chat Bubble */}
               <div
-                className={`chat-bubble flex flex-col p-3 rounded-2xl shadow-md backdrop-blur-sm max-w-[85%] sm:max-w-[75%] border select-text
+                className={`chat-bubble flex flex-col p-3.5 rounded-2xl shadow-md backdrop-blur-sm max-w-[85%] sm:max-w-[75%] border select-text transition-all duration-300 hover:shadow-lg
                   ${
                     isSentByMe
-                      ? "bg-primary text-primary-content font-medium rounded-tr-none border-primary/20"
-                      : "bg-base-200 text-base-content font-medium rounded-tl-none border-base-300/80"
+                      ? "bg-gradient-to-br from-primary via-primary to-secondary/90 text-primary-content font-medium rounded-tr-none border-primary/20 hover:border-primary/40"
+                      : "bg-gradient-to-br from-base-200 via-base-200 to-base-100/80 text-base-content font-medium rounded-tl-none border-base-300/80 hover:border-base-300"
                   }
                 `}
               >

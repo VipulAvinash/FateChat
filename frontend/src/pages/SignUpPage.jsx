@@ -33,11 +33,11 @@ const SignUpPage = () => {
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2 bg-gradient-to-br from-base-100 via-base-200 to-base-300">
-      <div className="flex flex-col justify-center items-center p-6 sm:p-12">
+      <div className="flex flex-col justify-center items-center p-6 sm:p-12 animate-fade-up">
         <div className="w-full max-w-md space-y-8 bg-base-100/60 p-8 rounded-3xl border border-base-300/80 shadow-2xl backdrop-blur-md select-none group transition-all duration-300 hover:border-primary/20 hover:shadow-primary/5">
           <div className="text-center">
             <div className="flex flex-col items-center gap-2 group cursor-pointer">
-              <div className="size-16 rounded-2xl bg-gradient-to-tr from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-all duration-300 relative border border-primary/10">
+              <div className="size-16 rounded-2xl bg-gradient-to-tr from-primary/20 via-primary/5 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-all duration-300 relative border border-primary/10">
                 <MessageSquare className="size-8 text-primary animate-pulse" />
                 <div className="absolute -top-1 -right-1">
                   <Sparkles className="size-5 text-accent animate-spin duration-10000" />
