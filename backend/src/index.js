@@ -26,7 +26,7 @@ const isAllowedOrigin = [
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (isAllowedOrigin(origin)) {
+    if (!origin || isAllowedOrigin.includes(origin)) {
       callback(null, true);
     } else {
       console.warn("❌ Blocked by CORS:", origin);
