@@ -48,14 +48,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* ==================== ✅ IMPORTANT PREFLIGHT FIX ==================== */
-app.options("*", cors(corsOptions));
+app.options("/*splat", cors(corsOptions));
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("route", (req, res) => {
+  app.get("/*splat", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
