@@ -12,12 +12,43 @@ const PORT = process.env.PORT;
 const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173","https://fate-chat.netlify.app",
+//     credentials: true,
+//   })
+// );
+
+const isAllowedOrigin = [
+  "https://fate-chat.netlify.app",
+  "http://localhost:5173",
+]
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (isAllowedOrigin(origin)) {
+      callback(null, true);
+    } else {
+      console.warn("❌ Blocked by CORS:", origin);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+  ],
+
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+/* ==================== ✅ IMPORTANT PREFLIGHT FIX ==================== */
+app.options("*", cors(corsOptions));
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
